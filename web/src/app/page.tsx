@@ -1,0 +1,6 @@
+"use client";
+
+{
+  "import": "use client;\nimport Dashboard from '@/components/Dashboard';\nimport Hero from '@/components/Hero';\nimport InsightPanel from '@/components/InsightPanel';\nimport StatePanel from '@/components/StatePanel';\nimport CollectionPanel from '@/components/CollectionPanel';\nimport StatsStrip from '@/components/StatsStrip';\nimport { useEffect, useState } from "react";",
+  "export": "export default function Home() {\n  const [loading, setLoading] = useState(true);\n  const [error, setError] = useState<any>(null);\n\n  useEffect(() => {\n    // Simulate loading state\n    const timer = setTimeout(() => {\n      setLoading(false);\n    }, 1000);\n\n    return () => clearTimeout(timer);\n  }, []);\n\n  if (loading) {\n    return <StatePanel state=\"loading\" message=\"Loading your forecast...\" />;\n  }\n\n  if (error) {\n    return <StatePanel state=\"error\" message={error} />;\n  }\n\n  return (\n    <main className=\"min-h-screen bg-background p-4\">\n      <Hero />\n      <div className=\"grid grid-cols-1 md:grid-cols-2 gap-6\">\n        <Dashboard />\n        <div className=\"space-y-6\">\n          <InsightPanel />\n          <CollectionPanel />\n          <StatsStrip />\n        </div>\n      </div>\n    </main>\n  );\n}"
+}
