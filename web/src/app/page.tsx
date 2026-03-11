@@ -1,5 +1,4 @@
-use client;
-
+use client
 import Dashboard from '@/components/Dashboard';
 import Hero from '@/components/Hero';
 import InsightPanel from '@/components/InsightPanel';
